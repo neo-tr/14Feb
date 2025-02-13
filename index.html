@@ -121,13 +121,13 @@
     <div class="container">
         <h1>Любимая, ты – моя чудачка!</h1>
         <p>Ты делаешь мою жизнь ярче, а меня – счастливее. С Днём всех влюблённых! ❤️</p>
-        <div class="heart">❤️</div>
+        <div id="bigHeart" class="heart">❤️</div>
         <button class="button" onclick="openModal()">Нажми</button>
     </div>
     <div id="myModal" class="modal">
         <div class="modal-content">
             <h2>Ты моё самое большое счастье!</h2>
-            <p>Я безумно люблю тебя и счастлив когда мы рядом 😘</p>
+            <p>Я безумно люблю тебя и счастлив когда мы рядом💖</p>
             <button class="modal-button" onclick="closeModal()">Люблю тебя ❤</button>
         </div>
     </div>
@@ -148,6 +148,17 @@
             setTimeout(() => heart.remove(), 5000);
         }
         setInterval(createHeart, 500);
+		function createKiss(event) {
+			const kiss = document.createElement('div');
+			kiss.classList.add('heart-icon');
+			kiss.innerHTML = '😘';
+			kiss.style.left = (event.clientX - 10) + 'px'; // Устанавливаем точку появления
+			kiss.style.top = (event.clientY - 10) + 'px';
+			kiss.style.animationDuration = (Math.random() * 3 + 2) + 's';
+			document.body.appendChild(kiss);
+			setTimeout(() => kiss.remove(), 5000);
+		}
+		document.getElementById('bigHeart').addEventListener('click', createKiss);
     </script>
 </body>
 </html>
